@@ -1,0 +1,16 @@
+# Ignore unnecessary folders
+.agent/
+design-system/
+
+# Python env
+.venv/
+
+# Node modules
+node_modules/
+
+# Env files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
