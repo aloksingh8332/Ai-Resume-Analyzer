@@ -134,7 +134,14 @@ export const AnalysisResults = ({ data, onReset }: Props) => {
   }, [matchedSkills, missingSkills, matchScore]);
 
   // ── STEP 9: UI RENDER GUARD ──
-  if (!data || (matchScore === 0 && matchedSkills.length === 0 && missingSkills.length === 0)) {
+   if (
+  !data ||
+  !data.metadata ||
+  !data.analysis ||
+  !data.recommendations ||
+  !Array.isArray(data.analysis.matched_skills) ||
+  !Array.isArray(data.analysis.missing_skills)
+) {
     return (
       <div className="p-12 text-center rounded-3xl border-2 border-dashed border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20">
         <XCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
